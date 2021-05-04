@@ -1,6 +1,7 @@
 package com.demo.ss3spring.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -21,15 +22,36 @@ public class ProductEntity {
     @Column(name = "categoryid")
     private int categoryid;
 
-    public ProductEntity() {
+    @Column(name = "attributeid")
+    private int attributeid;
 
+    @ManyToOne()
+    @JoinColumn(name = "categoryid", insertable = false, updatable = false) /// Phải có inserttable và updateable để tránh confix khi thêm dữ liệu
+    private CategoryEntity category;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "attribute",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "attributeid")
+    )
+    private List<AttributeEntity> attributes;
+
+    public CategoryEntity getCategory() {
+        return category;
     }
 
-    public ProductEntity(String name, int price, int quantity, int categoryid) {
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
+
+    public ProductEntity() {}
+
+    public ProductEntity(String name, int price, int quantity, int categoryid, int attributeid) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.categoryid = categoryid;
+        this.attributeid = attributeid;
     }
 
     public int getId() {
@@ -70,5 +92,21 @@ public class ProductEntity {
 
     public void setCategoryid(int categoryid) {
         this.categoryid = categoryid;
+    }
+
+    public int getAttributeid() {
+        return attributeid;
+    }
+
+    public void setAttributeid(int attributeid) {
+        this.attributeid = attributeid;
+    }
+
+    public List<AttributeEntity> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(List<AttributeEntity> attributes) {
+        this.attributes = attributes;
     }
 }
