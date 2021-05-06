@@ -2,14 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Detail</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-<h1>Index</h1>
-
-${products}
+<h1>Detail</h1>
 
 <div class="w3-container">
 
@@ -21,21 +19,13 @@ ${products}
             <th>Quantity</th>
             <th>Category</th>
         </tr>
-        <c:forEach var="p" items="${products}">
-            <tr>
-                <td>${p.id}</td>
-                <td>${p.name}</td>
-                <td>${p.price}</td>
-                <td>${p.quantity}</td>
-                <td>${p.category.name}</td>
-                <td>
-<%--                    <c:url var="url" value="detail">--%>
-<%--                        <c:param name="id" value="${p.id}"/>--%>
-<%--                    </c:url>--%>
-                    <a href="/detail/${p.id}">Detail</a>
-                </td>
-            </tr>
-        </c:forEach>
+        <tr>
+            <td>${product.id}</td>
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+            <td>${product.quantity}</td>
+            <td>${product.category.name}</td>
+        </tr>
 
     </table>
 </div>

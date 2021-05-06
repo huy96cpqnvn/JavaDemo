@@ -9,29 +9,31 @@
 <body>
 <h1>Index</h1>
 
-${products}
-
 <div class="w3-container">
 
+    <a href="/create">Create</a>
     <table class="w3-table w3-striped">
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Category</th>
+            <th>Code</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Birthday</th>
+            <th>Country</th>
         </tr>
-        <c:forEach var="p" items="${products}">
+        <c:forEach var="p" items="${students}">
             <tr>
                 <td>${p.id}</td>
                 <td>${p.name}</td>
-                <td>${p.price}</td>
-                <td>${p.quantity}</td>
-                <td>${p.category.name}</td>
+                <td>${p.code}</td>
+                <td>${p.gender}</td>
+                <td>${p.email}</td>
+                <td>${p.phone}</td>
+                <td>${p.birthday}</td>
+                <td>${p.country}</td>
                 <td>
-<%--                    <c:url var="url" value="detail">--%>
-<%--                        <c:param name="id" value="${p.id}"/>--%>
-<%--                    </c:url>--%>
                     <a href="/detail/${p.id}">Detail</a>
                 </td>
             </tr>
