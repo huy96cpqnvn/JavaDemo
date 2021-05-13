@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<!--        <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />-->
+
+<!--        <script th:src="@{/js/min.js}"></script>-->
+    </head>
+    <body>
+        <div layout:fragment="footer">
+            <!-- Footer-->
+            <footer class="bg-light py-5">
+                <div class="container">
+                    <div class="small text-center text-muted">
+                        Copyright &copy;
+                        <!-- This script automatically adds the current year to your website footer-->
+                        <!-- (credit: https://updateyourfooter.com/)-->
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        - Company Name
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
