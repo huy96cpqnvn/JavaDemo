@@ -11,6 +11,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
+            <th scope="col">Category</th>
             <th scope="col">Author</th>
             <th scope="col">Quantity</th>
         </tr>
@@ -19,6 +20,7 @@
         <tr>
             <th scope="row" th:text="${book.id}"></th>
             <td th:text="${book.name}"></td>
+            <td th:text="${book.category.name}"></td>
             <td th:text="${book.author}"></td>
             <td th:text="${book.quantity}"></td>
         </tr>

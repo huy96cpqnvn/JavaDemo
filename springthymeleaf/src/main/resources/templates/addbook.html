@@ -12,15 +12,25 @@
                 <form method="post" th:action="@{/addbook}" th:object="${book}">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" th:field="${book.name}">
+                        <input type="text" class="form-control" id="name" th:field="${book.name}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryid" class="form-label">Category</label>
+                        <input type="text" class="form-control" id="categoryid" th:field="${book.categoryid}" required>
+<!--                        <select id="categoryid" class="form-select" aria-label="Default select example" th:field="*{categoryid}">-->
+<!--                            <option value="">Choose Category</option>-->
+<!--                            <option th:each="category : ${categories}"-->
+<!--                                    th:value="${category.id}"-->
+<!--                                    th:utext="${category.name}"/>-->
+<!--                        </select>-->
                     </div>
                     <div class="mb-3">
                         <label for="author" class="form-label">Author</label>
-                        <input type="text" class="form-control" id="author" th:field="*{author}">
+                        <input type="text" class="form-control" id="author" th:field="*{author}" required>
                     </div>
                     <div class="mb-3">
                         <label for="quantity" class="form-label">Quantity</label>
-                        <input type="text" class="form-control" id="quantity" th:field="${book.quantity}">
+                        <input type="text" class="form-control" id="quantity" th:field="${book.quantity}" required>
                     </div>
                     <button type="submit" class="btn btn-primary">ADD</button>
                 </form>

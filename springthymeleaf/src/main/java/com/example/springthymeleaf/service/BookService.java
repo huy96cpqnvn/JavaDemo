@@ -1,6 +1,7 @@
 package com.example.springthymeleaf.service;
 
 import com.example.springthymeleaf.entity.BookEntity;
+import com.example.springthymeleaf.entity.CategoryEntity;
 
 import java.util.List;
 

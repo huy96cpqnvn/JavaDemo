@@ -18,6 +18,21 @@ public class BookEntity {
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "categoryid")
+    private int categoryid;
+
+    @ManyToOne()
+    @JoinColumn(name = "categoryid", insertable = false, updatable = false) /// Phải có inserttable và updateable để tránh conflix khi thêm dữ liệu
+    private CategoryEntity category;
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
+
     public int getId() {
         return id;
     }
@@ -48,5 +63,13 @@ public class BookEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int getCategoryid() {
+        return categoryid;
+    }
+
+    public void setCategoryid(int categoryid) {
+        this.categoryid = categoryid;
     }
 }
