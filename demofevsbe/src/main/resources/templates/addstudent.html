@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/template.html}">
+<head>
+    <title>Create Student</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <form method="post" th:action="@{/addstudent}" th:object="${student}">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" th:field="${student.name}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="classid" class="form-label">Class</label>
+                        <input type="text" class="form-control" id="classid" th:field="${student.classid}" required>
+                        <!--                        <select id="categoryid" class="form-select" aria-label="Default select example" th:field="*{categoryid}">-->
+                        <!--                            <option value="">Choose Category</option>-->
+                        <!--                            <option th:each="category : ${categories}"-->
+                        <!--                                    th:value="${category.id}"-->
+                        <!--                                    th:utext="${category.name}"/>-->
+                        <!--                        </select>-->
+                    </div>
+                    <div class="mb-3">
+                        <label for="code" class="form-label">Student Code</label>
+                        <input type="text" class="form-control" id="code" th:field="*{code}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <input type="text" class="form-control" id="gender" th:field="${student.gender}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" th:field="${student.email}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" th:field="${student.phone}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthday" class="form-label">Birthday</label>
+                        <input type="text" class="form-control" id="birthday" th:field="${student.birthday}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" class="form-control" id="country" th:field="${student.country}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ADD</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

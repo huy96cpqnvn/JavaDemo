@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/template.html}">
+<head>
+    <title>List Member</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div style="margin-bottom: 20px">
+            <a class="btn btn-primary" th:href="@{/add}">Add new member</a>
+        </div>
+        <table class="table">
+            <thead class="bg-primary" style="color: #ffffff">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Address</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="member: ${members}">
+                <th scope="row" th:text="${member.id}"></th>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.email}"></td>
+                <td th:text="${member.phone}"></td>
+                <td th:text="${member.birthday}"></td>
+                <td th:text="${member.address}"></td>
+                <td>
+                    <a class="btn btn-success" th:href="@{'/detail/' + ${member.id}}">Detail</a>
+
+                    <a class="btn btn-info" th:href="@{'/edit/' + ${member.id}}">Edit</a>
+
+                    <a class="btn btn-danger" onclick="if (!confirm('Are you sure?')) { return false }" th:href="@{'/delete/' + ${member.id}}">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+
+</html>
